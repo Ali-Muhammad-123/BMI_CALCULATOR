@@ -1,5 +1,6 @@
 package GUI;
 
+import Classes.Spreadsheet;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -16,7 +17,7 @@ public class Results {
     public Label results_height;
     public Label results_gender;
     public Label results_bmi;
-
+    Spreadsheet spreadsheet = new Spreadsheet();
     public void transferMessages(String Name , String Age , String Weight , String Height , String Gender , String BMI) {
 
             results_name.setText(Name);
@@ -25,6 +26,8 @@ public class Results {
             results_height.setText(Height);
             results_gender.setText(Gender);
             results_bmi.setText(BMI);
+
+            spreadsheet.writingCSVFile( Name , Age ,  Weight ,  Height , Gender ,  BMI);
 
     }
 
